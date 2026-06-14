@@ -170,6 +170,9 @@ a{color:inherit}
 /* Access chips */
 .access{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:18px}
 .acc-hint{font-size:11px;color:var(--text3);margin:-8px 0 14px;line-height:1.5}
+/* When a hint directly follows a form field it must clear the input rather than
+   tuck under a preceding row, so cancel the negative top margin. */
+.f + .acc-hint{margin-top:8px}
 .acc-sub{margin-top:15px}
 .acc-sub .lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:9px;font-family:'JetBrains Mono',monospace}
 .chips{display:flex;flex-wrap:wrap;gap:8px}

@@ -47,10 +47,20 @@ async function changeRole(u, role) {
 async function toggleStatus(u) {
   try {
     if (u.status === 'disabled') await api.put(`/settings/users/${u.id}`, { status: 'active' })
-    else await api.delete(`/settings/users/${u.id}`)
+    else await api.post(`/settings/users/${u.id}/deactivate`)
     await loadUsers()
   } catch (e) {
     ui.error(apiError(e))
+  }
+}
+async function deleteUser(u) {
+  if (!window.confirm(`Permanently delete ${u.name}? This cannot be undone.`)) return
+  try {
+    await api.delete(`/settings/users/${u.id}`)
+    await loadUsers()
+    ui.toast('User deleted')
+  } catch (e) {
+    ui.error(apiError(e, 'Could not delete user.'))
   }
 }
 
@@ -146,7 +156,7 @@ const roleClass = (r) => `rp-${r}`
       <div class="set-card">
         <div class="heading" style="margin-top:0">All users · {{ users.length }}</div>
         <table class="utable">
-          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th></th></tr></thead>
+          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th></th><th></th></tr></thead>
           <tbody>
             <tr v-for="u in users" :key="u.id">
               <td>{{ u.name }}</td>
@@ -158,6 +168,11 @@ const roleClass = (r) => `rp-${r}`
               </td>
               <td><span class="role-pill" :class="u.status === 'active' ? 'rp-member' : u.status === 'disabled' ? 'rp-admin' : 'rp-external'">{{ u.status }}</span></td>
               <td style="text-align:right"><button class="del-link" @click="toggleStatus(u)">{{ u.status === 'disabled' ? 'REACTIVATE' : 'DEACTIVATE' }}</button></td>
+              <td style="text-align:right;width:44px">
+                <button class="user-del" title="Delete user permanently" @click="deleteUser(u)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18" /><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" /><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" /><path d="M10 11v6" /><path d="M14 11v6" /></svg>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -212,6 +227,9 @@ const roleClass = (r) => `rp-${r}`
 .utable{width:100%;border-collapse:collapse;font-size:13px}
 .utable th{text-align:left;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:'JetBrains Mono',monospace;padding:8px 10px;border-bottom:1px solid var(--border2)}
 .utable td{padding:9px 10px;border-bottom:1px solid var(--border)}
+.user-del{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:6px;background:none;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:.15s}
+.user-del svg{width:14px;height:14px}
+.user-del:hover{background:var(--red);border-color:var(--red);color:#fff}
 .usage-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
 .ucard{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px}
 .ul{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:'JetBrains Mono',monospace}

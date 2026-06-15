@@ -361,7 +361,7 @@ function isDone(itemId) {
 .op-x:hover{background:var(--card2)}
 .chk-prog{height:6px;background:var(--card2);border-radius:4px;overflow:hidden;margin:10px 0 14px}
 .chk-prog>i{display:block;height:100%;background:var(--red);border-radius:4px;transition:width .3s}
-.chk-phase{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:'JetBrains Mono',monospace;margin:13px 0 6px}
+.chk-phase{font-size:12px;font-weight:600;letter-spacing:.1px;color:var(--text2);margin:13px 0 6px}
 .chk-item{display:flex;align-items:center;gap:10px;padding:6px 0}
 .chk-item.tap{cursor:pointer}
 .chk-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border2);flex:none;display:grid;place-items:center;color:#fff;transition:.15s}
@@ -375,7 +375,7 @@ function isDone(itemId) {
 .cmt-body{flex:1;min-width:0}
 .cmt-head{display:flex;align-items:center;gap:8px}
 .cmt-head b{font-size:12.5px;color:var(--text)}
-.cmt-head span{font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+.cmt-head span{font-size:11px;color:var(--text3)}
 .cmt-rm{margin-left:auto;color:var(--text3);font-size:12px}
 .cmt-rm:hover{color:var(--red)}
 .cmt-text{font-size:13px;color:var(--text2);line-height:1.5;margin-top:4px;white-space:pre-wrap}
@@ -386,8 +386,8 @@ function isDone(itemId) {
 .linkrow:hover{border-color:var(--red)}
 .fl-meta{flex:1;min-width:0}
 .fl-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
-.fl-sub{font-size:10.5px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px}
+.fl-sub{font-size:11px;color:var(--text3);margin-top:2px}
 .fl-empty{font-size:11.5px;color:var(--text3);text-align:center;padding:14px;border:1px dashed var(--border2);border-radius:var(--r)}
-.af-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--red-glow);border:1px solid rgba(192,32,26,.25);border-radius:var(--r);padding:12px 14px}
+.af-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--red-glow);border:1px solid rgba(229,37,42,.25);border-radius:var(--r);padding:12px 14px}
 .af-note{font-size:11.5px;color:var(--text2);line-height:1.5}
 </style>

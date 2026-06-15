@@ -77,7 +77,7 @@ async function remove(f) {
 .fl-ic{width:30px;height:30px;border-radius:5px;background:var(--card);border:1px solid var(--border2);display:grid;place-items:center;color:var(--text2);flex:none}
 .fl-meta{flex:1;min-width:0;text-decoration:none}
 .fl-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
-.fl-sub{font-size:10.5px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:2px;text-transform:uppercase}
+.fl-sub{font-size:11px;color:var(--text3);margin-top:2px}
 .fl-rm{color:var(--text3);font-size:13px}
 .fl-rm:hover{color:var(--red)}
 .fl-empty{font-size:11.5px;color:var(--text3);text-align:center;padding:14px;border:1px dashed var(--border2);border-radius:var(--r)}

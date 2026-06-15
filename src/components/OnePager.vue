@@ -29,8 +29,8 @@ const eyebrow = computed(() => `${props.project.format || 'Project'}${props.proj
   <div class="op-hero">
     <img v-if="project.coverUrl" :src="project.coverUrl" alt="" />
     <div class="ov" :style="project.coverUrl
-      ? 'background:linear-gradient(180deg,rgba(13,27,42,.15),rgba(13,27,42,.55) 55%,rgba(13,27,42,.95))'
-      : 'background:linear-gradient(135deg,#22303f,#0d1b2a)'"></div>
+      ? 'background:linear-gradient(180deg,rgba(10,13,19,.15),rgba(10,13,19,.55) 55%,rgba(10,13,19,.95))'
+      : 'background:linear-gradient(135deg,#1b2435,#0a0d13)'"></div>
     <div class="hero-in">
       <div class="op-eyebrow">
         {{ eyebrow }}
@@ -97,21 +97,21 @@ const eyebrow = computed(() => `${props.project.format || 'Project'}${props.proj
 </template>
 
 <style scoped>
-.op-hero{position:relative;min-height:230px;display:flex;align-items:flex-end;overflow:hidden;background:#0d1b2a}
+.op-hero{position:relative;min-height:230px;display:flex;align-items:flex-end;overflow:hidden;background:#0a0d13}
 .op-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .op-hero .ov{position:absolute;inset:0}
 .op-hero .hero-in{position:relative;padding:26px 30px;width:100%}
-.op-eyebrow{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-bottom:9px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.op-eyebrow{font-size:11px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;color:var(--text2);margin-bottom:9px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .op-title{font-size:34px;font-weight:800;color:#fff;line-height:1.04;letter-spacing:-.01em}
 .op-body{padding:24px 30px 26px;display:flex;flex-direction:column;gap:22px}
 .op-tagline{font-size:18px;line-height:1.42;color:var(--white);font-style:italic;font-weight:500;border-left:3px solid var(--red);padding-left:16px}
-.op-sec-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);font-family:'JetBrains Mono',monospace;margin-bottom:9px}
+.op-sec-label{font-size:13px;font-weight:700;letter-spacing:.1px;color:var(--text);margin-bottom:9px}
 .op-text{font-size:14px;line-height:1.62;color:var(--text);white-space:pre-wrap}
 .op-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .op-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0;padding:0}
 .op-list li{font-size:13.5px;color:var(--text);display:flex;gap:9px;align-items:flex-start}
 .op-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);margin-top:6px;flex:none}
 .op-pack{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px 18px}
-.op-foot{font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:1px;border-top:1px solid var(--border);padding-top:16px}
+.op-foot{font-size:11px;color:var(--text3);letter-spacing:.2px;border-top:1px solid var(--border);padding-top:16px}
 @media(max-width:640px){.op-grid{grid-template-columns:1fr}.op-title{font-size:26px}}
 </style>

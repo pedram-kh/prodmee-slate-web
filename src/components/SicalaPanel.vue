@@ -76,7 +76,7 @@ async function send() {
 .asst-panel{position:fixed;right:20px;bottom:86px;width:400px;max-width:calc(100vw - 40px);height:560px;max-height:calc(100vh - 120px);background:var(--card);border:1px solid var(--border2);border-radius:12px;z-index:1100;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.5);animation:up .2s ease}
 .asst-head{display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
 .asst-title{font-weight:800;font-size:15px}
-.asst-sub{font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.asst-sub{font-size:11px;color:var(--text3);letter-spacing:.2px;margin-top:2px}
 .asst-x{margin-left:auto;color:var(--text3);font-size:15px}
 .asst-x:hover{color:var(--text)}
 .asst-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
@@ -88,7 +88,7 @@ async function send() {
 .asst-msg.user .bubble{background:var(--red);color:#fff;border-bottom-right-radius:3px}
 .asst-msg.assistant .bubble{background:var(--card2);border:1px solid var(--border2);border-bottom-left-radius:3px}
 .bubble.err{border-color:#e0524f;color:#e0524f}
-.asst-acts{margin-top:8px;display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--text2);font-family:'JetBrains Mono',monospace}
+.asst-acts{margin-top:8px;display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--text2)}
 .typing{letter-spacing:2px;color:var(--text3);animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.4}}
 .asst-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);align-items:flex-end}

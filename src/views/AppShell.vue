@@ -44,7 +44,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.asst-fab{position:fixed;right:20px;bottom:20px;z-index:1100;width:54px;height:54px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 6px 22px rgba(192,32,26,.45);transition:.2s}
+.asst-fab{position:fixed;right:20px;bottom:20px;z-index:1100;width:54px;height:54px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 6px 22px rgba(229,37,42,.45);transition:.2s}
 .asst-fab:hover{transform:translateY(-2px)}
 .asst-fab svg{width:24px;height:24px}
 </style>

@@ -12,7 +12,7 @@ ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, BarElement, 
 
 const props = defineProps({ usage: { type: Object, required: true } })
 
-const RED = '#c0201a'
+const RED = '#e5252a'
 const BLUE = '#5599dd'
 
 const gridOpts = {
@@ -31,7 +31,7 @@ const tokensData = computed(() => ({
   labels: labels.value,
   datasets: [
     { label: 'Input', data: props.usage.series.map((s) => s.inputTokens), borderColor: BLUE, backgroundColor: 'rgba(85,153,221,.15)', fill: true, tension: 0.3 },
-    { label: 'Output', data: props.usage.series.map((s) => s.outputTokens), borderColor: RED, backgroundColor: 'rgba(192,32,26,.15)', fill: true, tension: 0.3 },
+    { label: 'Output', data: props.usage.series.map((s) => s.outputTokens), borderColor: RED, backgroundColor: 'rgba(229,37,42,.15)', fill: true, tension: 0.3 },
   ],
 }))
 
@@ -69,7 +69,7 @@ const hasData = computed(() => props.usage.series.length > 0)
 <style scoped>
 .charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1000px}
 .chart-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px 18px}
-.ct{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-bottom:14px}
+.ct{font-size:12px;font-weight:600;letter-spacing:.2px;color:var(--text2);margin-bottom:14px}
 .cbox{height:240px}
 @media(max-width:760px){.charts{grid-template-columns:1fr}}
 </style>

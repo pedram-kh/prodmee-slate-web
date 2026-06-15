@@ -88,7 +88,7 @@ async function verify() {
 .login-brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}
 .login-lead{font-size:13.5px;color:var(--text2);line-height:1.6}
 .login-go{justify-content:center;width:100%}
-.login-back{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+.login-back{font-size:11px;color:var(--text3)}
 .login-back:hover{color:var(--red)}
-.code-input{letter-spacing:10px;font-size:22px;text-align:center;font-family:'JetBrains Mono',monospace}
+.code-input{letter-spacing:10px;font-size:22px;text-align:center;font-variant-numeric:tabular-nums;font-weight:700}
 </style>

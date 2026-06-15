@@ -43,5 +43,5 @@ onMounted(async () => {
 .share-msg{margin:auto;text-align:center;color:var(--text2);display:flex;flex-direction:column;gap:10px;align-items:center}
 .share-msg .ico{font-size:46px;opacity:.2}
 .share-msg .t{font-size:20px;font-weight:700}
-.share-msg .s{font-size:12px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+.share-msg .s{font-size:12px;color:var(--text3)}
 </style>

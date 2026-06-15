@@ -225,13 +225,13 @@ const roleClass = (r) => `rp-${r}`
 .fin:focus{border-color:var(--red)}
 .fsel.sm{padding:6px 9px;font-size:12px}
 .utable{width:100%;border-collapse:collapse;font-size:13px}
-.utable th{text-align:left;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:'JetBrains Mono',monospace;padding:8px 10px;border-bottom:1px solid var(--border2)}
+.utable th{text-align:left;font-size:11px;font-weight:600;letter-spacing:.2px;color:var(--text3);padding:10px 10px;border-bottom:1px solid var(--border2)}
 .utable td{padding:9px 10px;border-bottom:1px solid var(--border)}
 .user-del{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:6px;background:none;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:.15s}
 .user-del svg{width:14px;height:14px}
 .user-del:hover{background:var(--red);border-color:var(--red);color:#fff}
 .usage-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
 .ucard{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px}
-.ul{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);font-family:'JetBrains Mono',monospace}
+.ul{font-size:11px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;color:var(--text3)}
 .uv{font-size:24px;font-weight:800;color:var(--white);margin-top:8px}
 </style>

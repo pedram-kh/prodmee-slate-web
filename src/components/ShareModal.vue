@@ -64,5 +64,5 @@ async function copy() {
 
 <style scoped>
 .share-url{display:flex;gap:8px}
-.share-url input{flex:1;background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:11px 13px;border-radius:var(--r);font-family:'JetBrains Mono',monospace;font-size:12px;outline:none}
+.share-url input{flex:1;background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:11px 13px;border-radius:var(--r-sm);font-size:12px;outline:none}
 </style>

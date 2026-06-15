@@ -68,7 +68,7 @@ function newProject() {
       <div v-if="!slate.projects.length" style="padding:14px;font-size:11px;color:var(--text3)" class="mono">NO PROJECTS</div>
     </div>
 
-    <button v-if="auth.isAdmin" class="sb-new-btn" @click="newProject">＋ New project</button>
+    <button v-if="auth.isWriter" class="sb-new-btn" @click="newProject">＋ New project</button>
     <div class="sb-bottom">
       <span style="cursor:pointer" @click="signOut">SIGN OUT</span>
     </div>

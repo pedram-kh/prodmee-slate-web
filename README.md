@@ -38,4 +38,5 @@ Set `VITE_API_BASE` (e.g. `https://api.slate.prodmee.app`) for production builds
 
 ## Deployment
 `.github/workflows/deploy.yml` builds and syncs `dist/` to S3 + invalidates
-CloudFront. See `prodmee-slate-api/DEPLOY.md` for the full infrastructure setup.
+CloudFront. See [deployment-guide.md](deployment-guide.md) for the full setup
+(deploy the `prodmee-slate-api` infrastructure first).

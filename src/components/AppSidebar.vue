@@ -26,7 +26,7 @@ function newProject() {
 <template>
   <aside class="sidebar">
     <div class="sb-head">
-      <span class="sb-mark">P</span><span class="sb-word">Prodmee</span>
+      <img src="/prodmee.png" alt="Prodmee" class="sb-logo" />
       <span class="sb-tag">Slate</span>
     </div>
 

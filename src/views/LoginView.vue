@@ -50,7 +50,7 @@ async function verify() {
     <div class="login-card">
       <div class="login-bar"></div>
       <div class="login-body">
-        <div class="login-brand"><span class="sb-mark">P</span><span class="sb-word">Prodmee Slate</span></div>
+        <div class="login-brand"><img src="/prodmee.png" alt="Prodmee" class="login-logo" /><span class="login-tag">Slate</span></div>
 
         <template v-if="step === 'email'">
           <p class="login-lead">Sign in with your work email. We'll send you a one-time code — no password needed.</p>
@@ -86,6 +86,8 @@ async function verify() {
 .login-bar{height:3px;background:var(--red)}
 .login-body{padding:34px 36px;display:flex;flex-direction:column;gap:18px}
 .login-brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.login-logo{height:28px;width:auto;display:block}
+.login-tag{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text3);text-transform:uppercase;border:1px solid var(--border2);padding:3px 7px;border-radius:20px}
 .login-lead{font-size:13.5px;color:var(--text2);line-height:1.6}
 .login-go{justify-content:center;width:100%}
 .login-back{font-size:11px;color:var(--text3)}

@@ -36,6 +36,7 @@ a{color:inherit}
 .sidebar{width:248px;min-width:248px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;position:sticky;top:0}
 .sb-head{padding:0 16px;height:64px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
 .sb-mark{width:32px;height:32px;border-radius:9px;background:var(--red);display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;flex:none}
+.sb-logo{height:24px;width:auto;display:block;flex:none}
 .sb-word{font-size:17px;font-weight:800;letter-spacing:-.02em}
 .sb-tag{margin-left:auto;font-size:8px;font-weight:700;letter-spacing:2px;color:var(--text3);text-transform:uppercase;border:1px solid var(--border2);padding:3px 7px;border-radius:20px}
 .sb-user-row{margin:12px;padding:12px;background:var(--card);border:1px solid var(--border2);border-radius:var(--r);display:flex;align-items:center;gap:11px}

@@ -113,10 +113,25 @@ export const useSlate = defineStore('slate', {
       return data
     },
     // Sicala AI
-    async askSicala(messages) {
-      const { data } = await api.post('/ai/assistant', { messages })
+    async askSicala(messages, attachments = []) {
+      const { data } = await api.post('/ai/assistant', { messages, attachments })
       if (data.changed) await this.loadAll()
       return data
+    },
+    // Chat attachment: presign -> direct S3 PUT (temp prefix, not tied to a project yet)
+    async uploadChatAttachment(file) {
+      const { data: presign } = await api.post('/ai/attachments/presign', {
+        filename: file.name,
+        content_type: file.type || 'application/octet-stream',
+      })
+      await fetch(presign.url, {
+        method: 'PUT',
+        headers: { ...(presign.headers || {}), 'Content-Type': file.type || 'application/octet-stream' },
+        body: file,
+      }).then((r) => {
+        if (!r.ok) throw new Error('Upload to storage failed')
+      })
+      return { key: presign.key, name: file.name, mime_type: file.type || null, size: file.size }
     },
     async autofill(projectId) {
       const { data } = await api.post('/ai/autofill', { project_id: projectId })

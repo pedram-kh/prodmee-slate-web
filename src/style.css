@@ -13,7 +13,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body,#app{height:100%;background:var(--bg)}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--red-glow2)}
 button{cursor:pointer;font-family:'Inter',sans-serif;border:none;background:none;color:inherit}
 input,textarea,select{font-family:'Inter',sans-serif}
@@ -22,8 +22,8 @@ a{color:inherit}
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* Shell */
-.shell{display:flex;min-height:100vh;width:100%;background:var(--bg)}
-.main{flex:1;display:flex;flex-direction:column;min-height:100vh;overflow:hidden;min-width:0}
+.shell{display:flex;min-height:100vh;min-height:100dvh;width:100%;background:var(--bg)}
+.main{flex:1;display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;overflow:hidden;min-width:0}
 .topbar{min-height:64px;border-bottom:1px solid var(--border);background:var(--surface);display:flex;
   align-items:center;padding:0 24px;gap:14px;flex-shrink:0;flex-wrap:wrap}
 .topbar h1{font-size:17px;font-weight:700;letter-spacing:-.01em}
@@ -33,7 +33,7 @@ a{color:inherit}
 .count-chip{font-size:12px;color:var(--text2);border:1px solid var(--border2);padding:6px 13px;border-radius:20px}
 
 /* Sidebar */
-.sidebar{width:248px;min-width:248px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;position:sticky;top:0}
+.sidebar{width:248px;min-width:248px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;height:100dvh;position:sticky;top:0}
 .sb-head{padding:0 16px;height:64px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
 .sb-mark{width:32px;height:32px;border-radius:9px;background:var(--red);display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;flex:none}
 .sb-logo{height:24px;width:auto;display:block;flex:none}
@@ -62,6 +62,11 @@ a{color:inherit}
 .sb-new-btn{margin:8px 10px;background:none;border:1px dashed var(--border2);color:var(--text3);padding:11px;font-size:11.5px;font-weight:600;border-radius:var(--r-sm);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:7px}
 .sb-new-btn:hover{border-color:var(--red);color:var(--red);background:var(--red-glow)}
 .sb-bottom{padding:11px 14px;border-top:1px solid var(--border);font-size:10px;color:var(--text3);letter-spacing:.3px;text-align:center}
+
+/* Mobile nav drawer — burger + overlay are desktop-hidden by default */
+.nav-burger{display:none;position:fixed;top:12px;left:12px;z-index:1300;width:40px;height:40px;border-radius:var(--r-sm);background:var(--card);border:1px solid var(--border2);color:var(--text);place-items:center}
+.nav-burger svg{width:20px;height:20px}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(5,8,14,.6);z-index:1150}
 
 /* Role pills (with leading status dot) */
 .role-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.3px;text-transform:capitalize;padding:4px 11px;border-radius:20px}
@@ -199,8 +204,41 @@ a{color:inherit}
 .toast.ok{border-color:var(--ok)}
 
 @media(max-width:760px){
-  .sidebar{display:none}
+  /* Sidebar becomes a slide-in drawer */
+  .nav-burger{display:grid}
+  .sidebar{position:fixed;top:0;left:0;z-index:1200;height:100vh;height:100dvh;
+    transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow)}
+  .shell.nav-open .sidebar{transform:translateX(0)}
+  .shell.nav-open .sb-overlay{display:block}
+
+  /* Make room for the burger in every view's top bar and the drawer header */
+  .topbar{padding-left:62px}
+  .sb-head{padding-left:62px}
+
+  /* Board: stack stages vertically instead of side-by-side columns */
+  .board{flex-direction:column;gap:12px}
+  .board .col{width:100%;min-width:0}
+
   .row2{grid-template-columns:1fr}
   .content{padding:14px}
-  .board .col{min-width:240px}
+
+  /* Filter bar: full-width search, selects share the row in pairs */
+  .search{max-width:none;flex:1 1 100%}
+  .fsel{flex:1 1 calc(50% - 5px);min-width:0}
+
+  /* Prevent iOS Safari from auto-zooming when focusing inputs (needs >=16px) */
+  .f input,.f textarea,.f select,.search input,.fsel{font-size:16px}
+
+  /* Modal becomes a full-height sheet. Keep the backdrop scrollable and let the
+     modal grow with its content (align-items:stretch would pin it to the viewport
+     height and clip, since .modal is overflow:hidden). */
+  .modal-bg{padding:0;-webkit-overflow-scrolling:touch}
+  .modal,.modal.wide{max-width:none;border-radius:0;min-height:100vh;min-height:100dvh}
+  .modal-head{padding:20px 18px 14px}
+  .modal-body{padding:18px;gap:16px}
+  .modal-foot{padding:14px 18px;flex-wrap:wrap}
+
+  /* Roomier tap targets */
+  .chip .rm{width:24px;height:24px}
+  .modal-close{width:36px;height:36px}
 }

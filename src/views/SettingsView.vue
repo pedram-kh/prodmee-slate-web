@@ -159,16 +159,16 @@ const roleClass = (r) => `rp-${r}`
           <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th></th><th></th></tr></thead>
           <tbody>
             <tr v-for="u in users" :key="u.id">
-              <td>{{ u.name }}</td>
-              <td class="mono" style="color:var(--text2)">{{ u.email }}</td>
-              <td>
+              <td data-label="Name">{{ u.name }}</td>
+              <td data-label="Email" class="mono" style="color:var(--text2)">{{ u.email }}</td>
+              <td data-label="Role">
                 <select class="fsel sm" :value="u.role" @change="changeRole(u, $event.target.value)">
                   <option value="admin">Admin</option><option value="member">Member</option><option value="external">External</option>
                 </select>
               </td>
-              <td><span class="role-pill" :class="u.status === 'active' ? 'rp-member' : u.status === 'disabled' ? 'rp-admin' : 'rp-external'">{{ u.status }}</span></td>
-              <td style="text-align:right"><button class="del-link" @click="toggleStatus(u)">{{ u.status === 'disabled' ? 'REACTIVATE' : 'DEACTIVATE' }}</button></td>
-              <td style="text-align:right;width:44px">
+              <td data-label="Status"><span class="role-pill" :class="u.status === 'active' ? 'rp-member' : u.status === 'disabled' ? 'rp-admin' : 'rp-external'">{{ u.status }}</span></td>
+              <td class="ta-r" style="text-align:right"><button class="del-link" @click="toggleStatus(u)">{{ u.status === 'disabled' ? 'REACTIVATE' : 'DEACTIVATE' }}</button></td>
+              <td class="ta-r td-del" style="text-align:right;width:44px">
                 <button class="user-del" title="Delete user permanently" @click="deleteUser(u)">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18" /><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" /><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" /><path d="M10 11v6" /><path d="M14 11v6" /></svg>
                 </button>
@@ -234,4 +234,19 @@ const roleClass = (r) => `rp-${r}`
 .ucard{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px}
 .ul{font-size:11px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;color:var(--text3)}
 .uv{font-size:24px;font-weight:800;color:var(--white);margin-top:8px}
+
+@media(max-width:760px){
+  .set-card{padding:16px}
+  .fin{font-size:16px}
+  /* Turn the users table into stacked cards — no horizontal overflow */
+  .utable thead{display:none}
+  .utable,.utable tbody{display:block;width:100%}
+  .utable tr{display:block;background:var(--card);border:1px solid var(--border2);border-radius:var(--r);padding:8px 14px;margin-bottom:10px}
+  .utable td{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%!important;padding:7px 0;border-bottom:1px solid var(--border);text-align:right!important}
+  .utable tr td:last-child{border-bottom:none}
+  .utable td::before{content:attr(data-label);color:var(--text3);font-size:11px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;text-align:left;flex:none}
+  .utable td:first-child{font-size:16px;font-weight:700;color:var(--white)}
+  .utable .ta-r{justify-content:flex-end}
+  .utable .fsel.sm{font-size:15px;padding:8px 10px}
+}
 </style>

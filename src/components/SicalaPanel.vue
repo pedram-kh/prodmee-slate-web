@@ -94,4 +94,9 @@ async function send() {
 .asst-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);align-items:flex-end}
 .asst-input textarea{flex:1;background:var(--card2);border:1px solid var(--border2);color:var(--text);padding:10px 12px;border-radius:var(--r);outline:none;resize:none;min-height:42px;max-height:120px;font-size:13px}
 .asst-input textarea:focus{border-color:var(--red)}
+@media(max-width:760px){
+  .asst-panel{right:10px;left:10px;width:auto;max-width:none;bottom:calc(80px + env(safe-area-inset-bottom));
+    height:auto;top:64px;max-height:none}
+  .asst-input textarea{font-size:16px}
+}
 </style>
